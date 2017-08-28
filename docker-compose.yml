@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+ tomcat:
+  image: 'my-tomcat2:latest'
+  container_name: notensammler_tomcat
+  ports:
+   - '32780:8080'
+  volumes:
+   - ./webapps:/usr/local/tomcat/webapps/
+  links:
+   - db
+
+ db:
+  image: 'mysql:latest'
+  container_name: notensammler_db
+  volumes:
+   - ./mysql:/var/lib/mysql
+  ports:
+   - '32781:3306'
+  environment:
+   - MYSQL_ROOT_PASSWORD=notensammler.2017
+   - MYSQL_DATABASE=notensammler
+  
