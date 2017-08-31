@@ -1,0 +1,1 @@
+$ docker run -dit -p 8080 --name notensammler-app my-tomcat2
