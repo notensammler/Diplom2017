@@ -21,4 +21,12 @@ services:
   environment:
    - MYSQL_ROOT_PASSWORD=notensammler.2017
    - MYSQL_DATABASE=notensammler
-  
+   
+ apache2:
+  image: 'httpd:alpine'
+  container_name: notensammler_apache2
+  volumes:
+   - ./apache2:/usr/local/apache2/htdocs
+  ports:
+   - '80:80'
+ 
